@@ -29,35 +29,35 @@ import Data.Bifunctor
 -------------------------------------------------
 -- Part I (13 marks)
 
-addP :: Polynomial -> Polynomial -> Polynomial
+-- addP :: Polynomial -> Polynomial -> Polynomial
 
 
-mulP :: Polynomial -> Polynomial -> Polynomial
+-- mulP :: Polynomial -> Polynomial -> Polynomial
 
 
-sumP :: [Polynomial] -> Polynomial
+-- sumP :: [Polynomial] -> Polynomial
 
 
-prodP :: [Polynomial] -> Polynomial
+-- prodP :: [Polynomial] -> Polynomial
 
 
-diffT :: Term -> Term
+-- diffT :: Term -> Term
 
 
 -- > The speç should specify the constant term to be zero!
-intT :: Term -> Term
+-- intT :: Term -> Term
 
 
-diffP :: Polynomial -> Polynomial
+-- diffP :: Polynomial -> Polynomial
 
 
-intP :: Polynomial -> Polynomial
+-- intP :: Polynomial -> Polynomial
 
 
 -------------------------------------------------
 -- Part II (7 marks)
 
-diffE :: Expr -> Expr
+-- diffE :: Expr -> Expr
 
 
 
@@ -65,26 +65,26 @@ diffE :: Expr -> Expr
 --
 -- Given
 --
-toExpr :: Rational -> Expr
-toExpr n = P [(n, 0)]
+-- toExpr :: Rational -> Expr
+-- toExpr n = P [(n, 0)]
 
-isConstant :: Expr -> Bool
-isConstant (P [(_, 0)]) = True
-isConstant _ = False
+-- isConstant :: Expr -> Bool
+-- isConstant (P [(_, 0)]) = True
+-- isConstant _ = False
 
-simplifiedDiff :: Expr -> Expr
-simplifiedDiff = simplify . diffE
+-- simplifiedDiff :: Expr -> Expr
+-- simplifiedDiff = simplify . diffE
 
-printDiff :: Expr -> IO ()
-printDiff = prettyPrint . simplifiedDiff
+-- printDiff :: Expr -> IO ()
+-- printDiff = prettyPrint . simplifiedDiff
 
 -------------------------------------------------
 -- Part III (10 marks)
 
-intE :: Expr -> Maybe Expr
+-- intE :: Expr -> Maybe Expr
 
 
-applyICR :: Expr -> Expr -> Maybe Expr
+-- applyICR :: Expr -> Expr -> Maybe Expr
 
 
 
@@ -92,8 +92,8 @@ applyICR :: Expr -> Expr -> Maybe Expr
 --
 -- Given...
 --
-simplifiedInt :: Expr -> Maybe Expr
-simplifiedInt = fmap simplify . intE
+-- simplifiedInt :: Expr -> Maybe Expr
+-- simplifiedInt = fmap simplify . intE
 
-printInt :: Expr -> IO ()
-printInt e = maybe (putStrLn "Fail") prettyPrint (simplifiedInt e)
+-- printInt :: Expr -> IO ()
+-- printInt e = maybe (putStrLn "Fail") prettyPrint (simplifiedInt e)
