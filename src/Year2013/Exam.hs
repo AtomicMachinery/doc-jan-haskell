@@ -7,27 +7,24 @@ data BinTree a = Node a Int (BinHeap a)
 -- PART I
 
 key :: BinTree a -> a
-key
-  = undefined
+key (Node v _ _) = v
 
 rank :: BinTree a -> Int
-rank
-  = undefined
+rank (Node _ r _) = r
 
 children :: BinTree a -> [BinTree a]
-children
-  = undefined
+children (Node _ _ cs) = cs
 
 combineTrees :: Ord a => BinTree a -> BinTree a -> BinTree a
-combineTrees 
-  = undefined
+combineTrees t@(Node v r cs) t'@(Node v' r' cs')
+  | v < v'    = Node v (r+1) (t':cs)
+  | otherwise = Node v' (r+1) (t:cs')
 
 --------------------------------------------------------------
 -- PART II
 
 extractMin :: Ord a => BinHeap a -> a
-extractMin 
-  = undefined
+extractMin ts = min (map key ts)
 
 mergeHeaps :: Ord a => BinHeap a -> BinHeap a -> BinHeap a
 mergeHeaps 
