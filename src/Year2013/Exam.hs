@@ -1,8 +1,3 @@
-module Year2013.Exam where
-
-import Data.Foldable (minimumBy)
-import Data.Function (on)
-
 type BinHeap a = [BinTree a]
 
 data BinTree a = Node a Int (BinHeap a)
@@ -12,63 +7,51 @@ data BinTree a = Node a Int (BinHeap a)
 -- PART I
 
 key :: BinTree a -> a
-key (Node a _ _) = a
+key
+  = undefined
 
 rank :: BinTree a -> Int
-rank (Node _ r _) = r
+rank
+  = undefined
 
 children :: BinTree a -> [BinTree a]
-children (Node _ _ h) = h
+children
+  = undefined
 
 combineTrees :: Ord a => BinTree a -> BinTree a -> BinTree a
-combineTrees t1@(Node a1 r1 h1) t2@(Node a2 r2 h2)
-  | a1 < a2   = Node a1 r (t2 : h1)
-  | otherwise = Node a2 r (t1 : h2)
-  where
-    r = 1 + max r1 r2
+combineTrees 
+  = undefined
 
 --------------------------------------------------------------
 -- PART II
 
 extractMin :: Ord a => BinHeap a -> a
-extractMin = minimum . map key
+extractMin 
+  = undefined
 
 mergeHeaps :: Ord a => BinHeap a -> BinHeap a -> BinHeap a
-mergeHeaps h1@(t1:ts1) h2@(t2:ts2)
-  | r1 < r2   = t1 : mergeHeaps ts1 h2
-  | r1 > r2   = t2 : mergeHeaps h1 ts2
-  | otherwise = mergeHeaps [combineTrees t1 t2] (mergeHeaps ts1 ts2)
-  where
-    (r1, r2) = (rank t1, rank t2)
-mergeHeaps h1 h2 = h1 <> h2 -- > To reach here, one of the heaps must be empty
+mergeHeaps 
+  = undefined
 
 insert :: Ord a => a -> BinHeap a -> BinHeap a
-insert e = mergeHeaps [Node e 0 []]
+insert 
+  = undefined
 
 deleteMin :: Ord a => BinHeap a -> BinHeap a
-deleteMin [] = []
-deleteMin h  = mergeHeaps ts (reverse ts')
-  where
-    (Node _ _ ts', ts) = removeMin h
+deleteMin 
+  = undefined
 
--- > this function is mentioned in the speç, and we don't use it
 remove :: Eq a => a -> BinHeap a -> BinHeap a
 remove
   = undefined
 
 removeMin :: Ord a => BinHeap a -> (BinTree a, BinHeap a)
-removeMin (t:ts) = go t [] ts
-  where
-    go t acc [] = (t, reverse acc)
-    go t acc (t':ts')
-      | key t <= key t' = go t (t':acc) ts'
-      | otherwise       = go t' (t:acc) ts'
+removeMin
+  = undefined
 
 binSort :: Ord a => [a] -> [a]
-binSort = go . foldr insert []
-  where
-    go [] = []
-    go h  = extractMin h : go (deleteMin h)
+binSort 
+  = undefined
 
 --------------------------------------------------------------
 -- PART III
